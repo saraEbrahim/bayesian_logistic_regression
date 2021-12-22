@@ -1,0 +1,4 @@
+accuracy for 5 data points of miniImagenet             5-way 1-shot with 1000 runs: 	 0.6003 +- 0.1126
+accuracy for 15 data points of miniImagenet             5-way 1-shot with 1000 runs: 	 0.6192 +- 0.1096
+accuracy for 30 data points of miniImagenet             5-way 1-shot with 1000 runs: 	 0.6105 +- 0.1077
+accuracy for 60 data points of miniImagenet             5-way 1-shot with 1000 runs: 	 0.6014 +- 0.1069

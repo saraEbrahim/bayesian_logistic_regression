@@ -1,0 +1,22 @@
+name: bayes_new
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - ipython
+  - jupyterlab
+  - matplotlib=3.1.1
+  - theano=1.0.4
+  - pymc3=3.7
+  - pandas=0.25.1
+  - seaborn=0.9.0
+  - numpy=1.16.5
+  - scipy=1.1
+  - graphviz=2.38.0
+  - python-graphviz=0.8.4
+  - pip=20.2.4
+  - mkl-service
+  - pip:
+    - arviz==0.5.1
+    - watermark==2.0.1

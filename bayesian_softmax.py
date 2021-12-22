@@ -11,13 +11,13 @@ logging.basicConfig(level=logging.INFO)
 
 def get_softmax_prediction(x_test, y_test, α, β, estimate_type="mean"):
     """
-    get the prediction of a held-out test dataset using the posterior distribution 
+    get the prediction of a held-out test dataset using the posterior distribution
     of the bayesian learning (i.e. averaging over the samples of parameter values)
     :param numpy.ndarray x_test: held-out test data.     shape = (num_data_points, num_feats)
     :param numpy.ndarray y_test: held-out true labels.   shape = (num_data_points,)
     :param numpy.ndarray α: bias term.                   shape = (num_iters, num_classes)
     :param numpy.ndarray β: features weights.            shape = (num_iters, num_feats, num_classes)
-    :param str           estimate_type: the averaging over parameters method. 
+    :param str           estimate_type: the averaging over parameters method.
                                     available options = ['mean', 'median', 'mode'], default value is: 'mean'
     :rtype: tuple        (prediction probabilities, prediction classes, accuracy %)
     """
@@ -37,7 +37,7 @@ def get_softmax_prediction(x_test, y_test, α, β, estimate_type="mean"):
     p_class = np.argmax(proba, axis=0)
 
     accuracy = np.sum(y_test == np.argmax(y_pred, axis=1)) / len(y_test)
-    return proba, p_class, accuracy * 100
+    return proba, p_class, accuracy
 
 
 def train_bayesian_softmax_regression(
@@ -49,7 +49,7 @@ def train_bayesian_softmax_regression(
     :param pd.DataFrame train_data: dataframe of the training data (must include 'label' as column)
     :param pd.DataFrame test_data: dataframe of the test data (must include 'label' as column)
     :param int num_samples: number of samples used in the bayesian training
-    :param in num_chains: number of parallel chains that will sample num_samples 
+    :param in num_chains: number of parallel chains that will sample num_samples
                     (e.g. if num_chains=2 and num_samples=500, total number of samples=1000)
     :return: a dataframe of the events information
     :rtype: pd.DataFrame
@@ -113,6 +113,21 @@ def train_bayesian_softmax_regression(
     y_test_proba, y_test_pred, test_accuracy = get_softmax_prediction(
         x_test, y_test, α, β, estimate_type="median"
     )
-    logging.info(f"[Bayesian predictions] accuracy for test data: {test_accuracy}")
+    logging.info(f"[Bayesian predictions] accuracy for test data: {test_accuracy:.4f}")
 
     return test_accuracy
+
+
+def save_accuracy(acc_file_name, acc_msg):
+
+    with open(acc_file_name, "a+") as file_object:
+        # move read cursor to the start of file.
+        file_object.seek(0)
+
+        # if file is not empty then append '\n'
+        data = file_object.read(100)
+        if len(data) > 0:
+            file_object.write("\n")
+
+        # append text at the end of file
+        file_object.write(acc_msg)

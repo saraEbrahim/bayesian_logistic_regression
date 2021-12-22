@@ -1,0 +1,2 @@
+NON-AUGMENTED miniImagenet         5-way 1-shot accuracy with 1000 runs: 	 0.6422
+mix-AUGMENTED miniImagenet         5-way 1-shot accuracy with 1000 runs: 	 0.4470

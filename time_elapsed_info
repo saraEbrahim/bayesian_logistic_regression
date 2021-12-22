@@ -1,0 +1,20 @@
+num_samples = 500
+num_chains = 2
+
+elapsed time for   5 data points and 5 features is: 8.7268 seconds
+elapsed time for  15 data points and 5 features is: 10.3988 seconds
+elapsed time for  30 data points and 5 features is: 11.6105 seconds
+elapsed time for  60 data points and 5 features is: 13.1514 seconds
+elapsed time for 100 data points and 5 features is: 15.1587 seconds
+elapsed time for 1000 runs is: 33085.6282 seconds
+
+elapsed time for   10 data points and 5 features is: 6.2831 seconds
+elapsed time for   15 data points and 5 features is: 7.1582 seconds
+elapsed time for   20 data points and 5 features is: 7.8080 seconds
+elapsed time for   30 data points and 5 features is: 8.6497 seconds
+elapsed time for   40 data points and 5 features is: 9.1394 seconds
+elapsed time for   60 data points and 5 features is: 13.2358 seconds
+elapsed time for  100 data points and 5 features is: 12.1399 seconds
+elapsed time for 1000 data points and 5 features is: 25.4212 seconds
+
+
